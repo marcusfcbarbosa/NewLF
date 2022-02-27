@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LFV2.Domain.PedidosContext.Entities;
 
 namespace LFV2.Domain.PedidosContext.Repositories.Interfaces
 {
-    interface IPedidoRepository
+    public interface IPedidoRepository : IBaseRepository<Pedido>
     {
+
     }
 }

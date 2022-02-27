@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="MongoDB.Driver" Version="2.13.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
 			<PrivateAssets>all</PrivateAssets>
@@ -17,7 +18,8 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="NoSQLContext\" />
+	  <ProjectReference Include="..\..\2-Domain\LFV2.Domain\LFV2.Domain.csproj" />
+	  <ProjectReference Include="..\..\4-Shared\LFV2.Shared\LFV2.Shared.csproj" />
 	</ItemGroup>
 
 </Project>

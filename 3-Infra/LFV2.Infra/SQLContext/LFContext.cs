@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidator;
+using LFV2.Domain.PedidosContext.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace LFV2.Infra.SQLContext
 {
@@ -23,16 +26,31 @@ namespace LFV2.Infra.SQLContext
             }
         }
 
-        //public DbSet<AnuncioWebMotors> AnuncioWebMotors { get; set; }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(WebMotorsContext).Assembly);
-        //    modelBuilder.Ignore<Notifiable>();
-        //    modelBuilder.Ignore<Notification>();
+        public DbSet<Pedido> Pedidos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(LFContext).Assembly);
+            modelBuilder.Ignore<Notifiable>();
+            modelBuilder.Ignore<Notification>();
 
-        //    EntityMapping(modelBuilder);
-        //    base.OnModelCreating(modelBuilder);
-        //}
+            EntityMapping(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
+        private void EntityMapping(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Pedido>(entity =>
+            {
+                entity.ToTable("tb_Pedidos").HasKey(e => e.Id);
+                entity.Property(e => e.CreateAt).HasColumnName("createdAt").HasDefaultValue(DateTime.Now);
+                entity.Property(e => e.UpdateAt).HasColumnName("updateAt");
+                entity.Property(e => e.Nome)
+                    .HasMaxLength(45)
+                    .HasColumnName("nome");
 
+                entity.Property(e => e.Obs)
+                    .HasMaxLength(200)
+                    .HasColumnName("obs");
+            });
+        }
     }
 }

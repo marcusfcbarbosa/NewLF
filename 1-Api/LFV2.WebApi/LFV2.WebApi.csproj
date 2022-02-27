@@ -17,11 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\2-Domain\LFV2.Domain\LFV2.Domain.csproj" />
+    <ProjectReference Include="..\..\3-Infra\LFV2.Infra\LFV2.Infra.csproj" />
     <ProjectReference Include="..\..\4-Shared\LFV2.Shared\LFV2.Shared.csproj" />
   </ItemGroup>
 

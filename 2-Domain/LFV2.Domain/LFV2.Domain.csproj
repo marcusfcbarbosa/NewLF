@@ -11,8 +11,6 @@
 </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PedidosContext\Adapters\" />
-    <Folder Include="PedidosContext\Models\" />
     <Folder Include="PedidosContext\Queries\Inputs\" />
     <Folder Include="PedidosContext\QueryHandlers\" />
   </ItemGroup>

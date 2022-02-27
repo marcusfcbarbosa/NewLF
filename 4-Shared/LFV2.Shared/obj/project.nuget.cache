@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OQCEi3dfqrhi5JXnBihb5dQHHGufxfIiJyg1fxegzfVMuqOIRbZZS3A1LsLUzS05thabWZ/sHrckxPrKXiTJ/g==",
+  "dgSpecHash": "shj9ozeDuC+n/5ObSsmbX9kNVnpW6ZP+SIarIA74Tl3Q7eIwx/6gIQvv8sfzpxeJcO100TNhID2FdbvyvHI5Ww==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\4-Shared\\LFV2.Shared\\LFV2.Shared.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Marcus\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Marcus\\.nuget\\packages\\fluentvalidator\\2.0.4\\fluentvalidator.2.0.4.nupkg.sha512",
     "C:\\Users\\Marcus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Marcus\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Marcus\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcus\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Marcus\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

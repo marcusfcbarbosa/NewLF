@@ -2259,6 +2259,7 @@
           "AutoMapper": "11.0.0",
           "Dapper": "2.0.123",
           "FluentValidator": "2.0.4",
+          "MediatR": "9.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.13",
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.13",

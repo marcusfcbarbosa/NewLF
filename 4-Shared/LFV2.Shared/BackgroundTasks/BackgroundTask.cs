@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LFV2.Shared.BackgroundTasks
 {
+    //Funciona bacisamente como algum tipo de evento que é disparado
     public class BackgroundTask
     {
         private readonly ILogger<BackgroundTask> _logger;

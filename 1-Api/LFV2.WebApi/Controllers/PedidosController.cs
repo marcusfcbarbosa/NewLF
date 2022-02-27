@@ -9,7 +9,7 @@ namespace LFV2.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PedidosController : ControllerBase
+    public class PedidosController : BaseController
     {
         [HttpPost]
         [Route("")]
