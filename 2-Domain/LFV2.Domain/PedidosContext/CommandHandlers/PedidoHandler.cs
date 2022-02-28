@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace LFV2.Domain.PedidosContext.CommandHandlers
 {
-    public class PedidoHandler : IRequestHandler<CriaPedidoCommand, ICommandResult>
+    public class PedidoHandler : 
+        IRequestHandler<CriaPedidoCommand, ICommandResult>
     {
         private readonly IPedidoRepository _pedidoRepository;
         private readonly BackgroundTask _backgroundTask;
@@ -31,7 +32,7 @@ namespace LFV2.Domain.PedidosContext.CommandHandlers
             try
             {
                 var entity = PedidoAdapter.CommandToEntity(command);
-                await _pedidoRepository.CreateAsync(PedidoAdapter.CommandToEntity(command));
+                await _pedidoRepository.CreateAsync(entity);
                 await _pedidoRepository.SaveChangesAsync();
                 //Replica para a base NoSql, de maneira paralela
                 _backgroundTask.Fire<IMongoPedidoRepository>(d => d.ReplicaParaBaseNoSql(entity.Id,entity.Nome,entity.Obs));

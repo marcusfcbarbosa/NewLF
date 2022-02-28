@@ -85,7 +85,7 @@ namespace LFV2.WebApi
             services.AddMediatR(typeof(CriaPedidoCommand).GetTypeInfo().Assembly);
             #endregion
 
-            //services.AddHttpClient<IPedidoRepository, PedidoRepository>();
+
             services.AddSingleton<BackgroundTask>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
