@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\5-Tests\\LFV2.Test\\LFV2.Test.csproj": {}
+    "C:\\repos\\estudos\\NewLF\\5-Tests\\LFV2.Test\\LFV2.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\5-Tests\\LFV2.Test\\LFV2.Test.csproj": {
+    "C:\\repos\\estudos\\NewLF\\5-Tests\\LFV2.Test\\LFV2.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\5-Tests\\LFV2.Test\\LFV2.Test.csproj",
+        "projectUniqueName": "C:\\repos\\estudos\\NewLF\\5-Tests\\LFV2.Test\\LFV2.Test.csproj",
         "projectName": "LFV2.Test",
-        "projectPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\5-Tests\\LFV2.Test\\LFV2.Test.csproj",
-        "packagesPath": "C:\\Users\\Marcus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\5-Tests\\LFV2.Test\\obj\\",
+        "projectPath": "C:\\repos\\estudos\\NewLF\\5-Tests\\LFV2.Test\\LFV2.Test.csproj",
+        "packagesPath": "C:\\Users\\aluga.com\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\estudos\\NewLF\\5-Tests\\LFV2.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marcus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aluga.com\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +26,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://pkgs.dev.azure.com/marcusfcbarbosa/_packaging/PartsUnlimitedShared/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.adiq.io/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -70,12 +72,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

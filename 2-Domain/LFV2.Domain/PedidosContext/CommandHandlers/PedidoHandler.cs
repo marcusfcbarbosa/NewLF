@@ -35,7 +35,7 @@ namespace LFV2.Domain.PedidosContext.CommandHandlers
                 await _pedidoRepository.CreateAsync(entity);
                 await _pedidoRepository.SaveChangesAsync();
                 //Replica para a base NoSql, de maneira paralela
-                _backgroundTask.Fire<IMongoPedidoRepository>(d => d.ReplicaParaBaseNoSql(entity.Id,entity.Nome,entity.Obs));
+                _backgroundTask.FireAsync<IMongoPedidoRepository>(d => d.ReplicaParaBaseNoSql(entity.Id,entity.Nome,entity.Obs));
                 return new CommandResult(true, "Pedido cadastrado com sucesso!", PedidoAdapter.EntityToModel(entity));
             }
             catch (Exception e)

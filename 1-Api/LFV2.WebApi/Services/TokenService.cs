@@ -1,6 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -15,7 +16,8 @@ namespace LFV2.WebApi.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]{
-                    new Claim(ClaimTypes.Name, username)
+                    new Claim(JwtRegisteredClaimNames.UniqueName, username),
+                    new Claim(JwtRegisteredClaimNames.Name, "test marquinhos")
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(
@@ -23,7 +25,20 @@ namespace LFV2.WebApi.Services
                     SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+
+            var generateToken = tokenHandler.WriteToken(token);
+            DecriptToken(generateToken, JwtRegisteredClaimNames.UniqueName);
+            return generateToken;
+        }
+
+        public static string DecriptToken(string token, string claimType)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var test = tokenHandler.ReadToken(token) as JwtSecurityToken;
+
+            var stringClaimValue = test.Claims.FirstOrDefault(claim => claim.Type == claimType);
+            return stringClaimValue.Value;
+
         }
     }
 }

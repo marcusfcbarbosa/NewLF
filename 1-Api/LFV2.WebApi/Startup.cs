@@ -5,6 +5,7 @@ using LFV2.Infra.NoSQLContext.Repositories;
 using LFV2.Infra.SQLContext;
 using LFV2.Infra.SQLContext.Repositories;
 using LFV2.Shared.BackgroundTasks;
+using LFV2.WebApi.Auth;
 using LFV2.WebApi.InfraEstructure;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,7 +27,7 @@ namespace LFV2.WebApi
         {
             Configuration = configuration;
         }
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -52,17 +53,18 @@ namespace LFV2.WebApi
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
             .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+             {
+                 x.RequireHttpsMetadata = false;
+                 x.SaveToken = true;
+                 x.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     ValidateIssuerSigningKey = true,
+                     IssuerSigningKey = new SymmetricSecurityKey(key),
+                     ValidateIssuer = false,
+                     ValidateAudience = false
+                 };
+             });
+
         }
 
         public void DocumentacaoApi(IServiceCollection services)
@@ -87,6 +89,7 @@ namespace LFV2.WebApi
 
 
             services.AddSingleton<BackgroundTask>();
+
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -95,16 +98,9 @@ namespace LFV2.WebApi
             {
                 app.UseSwaggerDocumentation();
             }
-
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "swagger");
-            });
-
             app.UseRouting();
 
+            app.UseMiddleware<AuthMiddleware>();
             app.UseCors(x => x
                       .AllowAnyOrigin()
                       .AllowAnyMethod()

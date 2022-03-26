@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace LFV2.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
+    [Route("[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {

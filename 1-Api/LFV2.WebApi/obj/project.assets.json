@@ -8881,23 +8881,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marcus\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\aluga.com\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\1-Api\\LFV2.WebApi\\LFV2.WebApi.csproj",
+      "projectUniqueName": "C:\\repos\\estudos\\NewLF\\1-Api\\LFV2.WebApi\\LFV2.WebApi.csproj",
       "projectName": "LFV2.WebApi",
-      "projectPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\1-Api\\LFV2.WebApi\\LFV2.WebApi.csproj",
-      "packagesPath": "C:\\Users\\Marcus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\1-Api\\LFV2.WebApi\\obj\\",
+      "projectPath": "C:\\repos\\estudos\\NewLF\\1-Api\\LFV2.WebApi\\LFV2.WebApi.csproj",
+      "packagesPath": "C:\\Users\\aluga.com\\.nuget\\packages\\",
+      "outputPath": "C:\\repos\\estudos\\NewLF\\1-Api\\LFV2.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Marcus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aluga.com\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8905,20 +8906,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://pkgs.dev.azure.com/marcusfcbarbosa/_packaging/PartsUnlimitedShared/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.adiq.io/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\2-Domain\\LFV2.Domain\\LFV2.Domain.csproj": {
-              "projectPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\2-Domain\\LFV2.Domain\\LFV2.Domain.csproj"
+            "C:\\repos\\estudos\\NewLF\\2-Domain\\LFV2.Domain\\LFV2.Domain.csproj": {
+              "projectPath": "C:\\repos\\estudos\\NewLF\\2-Domain\\LFV2.Domain\\LFV2.Domain.csproj"
             },
-            "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\3-Infra\\LFV2.Infra\\LFV2.Infra.csproj": {
-              "projectPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\3-Infra\\LFV2.Infra\\LFV2.Infra.csproj"
+            "C:\\repos\\estudos\\NewLF\\3-Infra\\LFV2.Infra\\LFV2.Infra.csproj": {
+              "projectPath": "C:\\repos\\estudos\\NewLF\\3-Infra\\LFV2.Infra\\LFV2.Infra.csproj"
             },
-            "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\4-Shared\\LFV2.Shared\\LFV2.Shared.csproj": {
-              "projectPath": "C:\\Users\\Marcus\\Documents\\1-GithubRepositories\\LFv2\\4-Shared\\LFV2.Shared\\LFV2.Shared.csproj"
+            "C:\\repos\\estudos\\NewLF\\4-Shared\\LFV2.Shared\\LFV2.Shared.csproj": {
+              "projectPath": "C:\\repos\\estudos\\NewLF\\4-Shared\\LFV2.Shared\\LFV2.Shared.csproj"
             }
           }
         }
@@ -8972,6 +8974,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.13, 5.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8980,7 +8988,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
