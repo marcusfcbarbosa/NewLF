@@ -3,8 +3,8 @@ using LFV2.Domain.PedidosContext.Commands.Inputs;
 using LFV2.Domain.PedidosContext.Commands.Outputs;
 using LFV2.Domain.PedidosContext.Entities;
 using LFV2.Domain.PedidosContext.Repositories.Interfaces;
-using LFV2.Shared.BackgroundTasks;
 using LFV2.Shared.Commands;
+using LFV2.Shared.Interfaces;
 using MediatR;
 using System;
 using System.Threading;
@@ -16,13 +16,13 @@ namespace LFV2.Domain.PedidosContext.CommandHandlers
         IRequestHandler<CriaPedidoCommand, ICommandResult>
     {
         private readonly IPedidoRepository _pedidoRepository;
-        private readonly BackgroundTask _backgroundTask;
+        private readonly ITriggeringJjob _triggeringJjob;
         private readonly IMongoPedidoRepository _mongoPedidoRepository;
         public PedidoHandler(IPedidoRepository pedidoRepository,
             IMongoPedidoRepository mongoPedidoRepository,
-            BackgroundTask backgroundTask)
+            ITriggeringJjob triggeringJjob)
         {
-            _backgroundTask = backgroundTask;
+            _triggeringJjob = triggeringJjob;
             _pedidoRepository = pedidoRepository;
             _mongoPedidoRepository = mongoPedidoRepository;
         }
@@ -34,8 +34,7 @@ namespace LFV2.Domain.PedidosContext.CommandHandlers
                 var entity = PedidoAdapter.CommandToEntity(command);
                 await _pedidoRepository.CreateAsync(entity);
                 await _pedidoRepository.SaveChangesAsync();
-                //Replica para a base NoSql, de maneira paralela
-                _backgroundTask.Fire<IMongoPedidoRepository>(d => d.ReplicaParaBaseNoSql(entity.Id,entity.Nome,entity.Obs));
+                _triggeringJjob.Trigger<IMongoPedidoRepository>(d => d.ReplicaParaBaseNoSql(entity.Id,entity.Nome,entity.Obs));
                 return new CommandResult(true, "Pedido cadastrado com sucesso!", PedidoAdapter.EntityToModel(entity));
             }
             catch (Exception e)

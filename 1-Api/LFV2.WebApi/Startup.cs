@@ -4,7 +4,8 @@ using LFV2.Infra.NoSQLContext;
 using LFV2.Infra.NoSQLContext.Repositories;
 using LFV2.Infra.SQLContext;
 using LFV2.Infra.SQLContext.Repositories;
-using LFV2.Shared.BackgroundTasks;
+using LFV2.Shared.Interfaces;
+using LFV2.Shared.TriggeringJobs;
 using LFV2.WebApi.InfraEstructure;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -78,15 +79,14 @@ namespace LFV2.WebApi
             #region"Repositórios"
             services.AddScoped<IPedidoRepository, PedidoRepository>();
             services.AddScoped<IMongoPedidoRepository, MongoPedidoRepository>();
+            services.AddScoped<ITriggeringJjob, TriggeringJob>();
+            
             #endregion
 
             #region"mediator"
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddMediatR(typeof(CriaPedidoCommand).GetTypeInfo().Assembly);
             #endregion
-
-
-            services.AddSingleton<BackgroundTask>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

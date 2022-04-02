@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LFV2.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace LFV2.Shared.BackgroundTasks
+namespace LFV2.Shared.TriggeringJobs
 {
     //Funciona bacisamente como algum tipo de evento que é disparado
-    public class BackgroundTask
+    public class TriggeringJob : ITriggeringJjob
     {
-        private readonly ILogger<BackgroundTask> _logger;
+        private readonly ILogger<TriggeringJob> _logger;
         private readonly IServiceProvider _provider;
-
-        public BackgroundTask(IServiceProvider provider
-            , ILogger<BackgroundTask> logger)
+        public TriggeringJob(IServiceProvider provider
+            , ILogger<TriggeringJob> logger)
         {
             _provider = provider;
             _logger = logger;
         }
 
-        public void Fire<T>(Action<T> bullet, Action<Exception> handler = null)
+        public void Trigger<T>(Action<T> bullet, Action<Exception> handler = null)
         {
-            _logger.LogInformation("BackgroundTask - Fired a new action.");
+            _logger.LogInformation("TriggeringJobs - Trigger a new action.");
             Task.Run(() =>
             {
                 using var scope = _provider.CreateScope();
@@ -31,7 +31,7 @@ namespace LFV2.Shared.BackgroundTasks
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError(e, "BackgroundTask crashed!");
+                    _logger.LogError(e, "TriggeringJobs crashed!");
                     handler?.Invoke(e);
                 }
                 finally
@@ -41,9 +41,9 @@ namespace LFV2.Shared.BackgroundTasks
             });
         }
 
-        public void FireAsync<T>(Func<T, Task> bullet, Action<Exception> handler = null)
+        public void TriggerAsync<T>(Func<T, Task> bullet, Action<Exception> handler = null)
         {
-            _logger.LogInformation("BackgroundTask - Fired a new action.");
+            _logger.LogInformation("TriggeringJobs - Fired a new action.");
             Task.Run(async () =>
             {
                 using var scope = _provider.CreateScope();
@@ -54,7 +54,7 @@ namespace LFV2.Shared.BackgroundTasks
                 }
                 catch (Exception e)
                 {
-                    _logger.LogError(e, "BackgroundTask crashed!");
+                    _logger.LogError(e, "TriggeringJobs crashed!");
                     handler?.Invoke(e);
                 }
                 finally
